@@ -10,10 +10,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
 
-public class WordCountDriver extends Configured implements Tool{
+public class WordCountDriver extends Configured{
 
 	public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
 
@@ -23,8 +21,7 @@ public class WordCountDriver extends Configured implements Tool{
 		}
 
 		Job job = Job.getInstance(new Configuration(), "Word Count");
-
-		job.setJarByClass(getClass());
+		job.setJarByClass(WordCountDriver.class);
 
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
@@ -40,12 +37,4 @@ public class WordCountDriver extends Configured implements Tool{
 		System.exit(success ? 0 : 1);
 
 	}
-
-	@Override
-	public int run(String[] arg0) throws Exception {
-ToolRunner.run(new WordCountDriver(),arg0);
-		
-		return 0;
-	}
-
 }

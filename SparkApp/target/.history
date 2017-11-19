@@ -1,0 +1,11 @@
+sbt package
+package
+clean package
+clean 
+package
+clean
+package
+clean
+package
+clean
+package

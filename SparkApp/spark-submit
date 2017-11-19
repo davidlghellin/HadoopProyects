@@ -1,0 +1,7 @@
+#https://spark.apache.org/docs/latest/configuration.html
+
+/home/wizord/Documentos/Programas/spark-2.2.0-bin-hadoop2.7/bin/spark-submit \
+	--class GenerateNames \
+    --master local[3] \
+    --name "GenerateNames" \
+	/home/wizord/workspaceScala/SparkApp/target/scala-2.11/sparkapp_2.11-0.1.jar
